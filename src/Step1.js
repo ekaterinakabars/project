@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useHistory } from "react-router";
+import { useData } from "./DataContext";
 
 
 
@@ -25,12 +26,16 @@ const schema = yup.object().shape({
 
 export const Step1 = () => {
     const history = useHistory()
+    const { data, setValues } = useData()
+
     const { register, handleSubmit, errors } = useForm({
+        defaultValues: { firstName: data.firstName, lastName: data.lastName },
         mode: "onBlur",
         resolver: yupResolver(schema)
     })
     const onSubmit = (data) => {
         history.push("/step2")
+        setValues(data)
     }
     return (
         <MainContainer>

@@ -1,4 +1,6 @@
-import { Checkbox, FormControlLabel, Typography } from "@material-ui/core";
+// import { Checkbox, FormControlLabel, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
+
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
@@ -8,24 +10,39 @@ import { Input } from "./Input";
 import { PrimateButton } from "./PrimatButton";
 import * as yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
+// import { parsePhoneNumberFromString } from "libphonenumber-js"
+import { useData } from "../DataContext";
 
 const shema = yup.object()
     .shape({
-        email: yup.string().email("Email should  have email correct format ").required("Email is required field")
+        email: yup
+            .string()
+            .email("Email should  have email correct format ")
+            .required("Email is required field"),
 
     })
+
 
 export const Step2 = () => {
     const history = useHistory()
+    const { data, setValues } = useData()
     const { register, handleSubmit, errors, watch } = useForm({
-        made: "onBlur",
+
+        defaultValues: {
+            email: data.email,
+
+        },
+        mode: "onBlur",
         resolver: yupResolver(shema)
     })
 
-    const hasPhone = watch("hasPhone")
+
 
     const onSubmit = (data) => {
-        history.push("/step3")
+
+        history.push("/result")
+        setValues(data)
+
     }
 
     return <MainContainer>
@@ -37,36 +54,16 @@ export const Step2 = () => {
 
         <Form onSubmit={handleSubmit(onSubmit)}>
             <Input
-                // {...register("firstName")}
+
                 {...register("email")}
                 type="email"
                 id="email"
                 label="Email"
                 name="email"
-                required
-            // error={!!errors.email}
-            // helperText={errors?.email?.message}
-            />
-            <FormControlLabel control={
-                <Checkbox
-                    name="hasPhone"
-                    {...register("inputRef")}
-                    // inputRef={register}
-                    color="primary" />}
-                label="Do you have a phone"
-            />
+                required />
 
 
-            {
-                hasPhone && (
-                    <Input
-                        ref={register}
-                        id="phoneNumber"
-                        type="tel"
-                        label="phoneNumber "
-                        name="phoneNumber" />
-                )
-            }
+
             <PrimateButton>
                 next
             </PrimateButton>
