@@ -26,6 +26,7 @@ const schema = yup.object().shape({
         .required("Last name is a required field"),
     email: yup
         .string()
+
         // .matches(/^([^0-9]*)$/, "email  should not contain numbers")
         .required("email  is a required field"),
     password: yup

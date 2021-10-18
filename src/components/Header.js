@@ -20,7 +20,7 @@ export const Header = () => {
         <Typography className={styles.root}
             component="h1"
             variant="h9">
-            The Ultimate Form Challenge
+            Fill in these fields
         </Typography>
     )
 }
