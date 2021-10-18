@@ -1,72 +1,118 @@
-// import { Checkbox, FormControlLabel, Typography } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
-
+import { PrimaryButton } from "./PrimarryButton";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
 import { Form } from "./Form";
 import { MainContainer } from "./MainContainer";
 import { Input } from "./Input";
-import { PrimateButton } from "./PrimatButton";
 import * as yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
-// import { parsePhoneNumberFromString } from "libphonenumber-js"
 import { useData } from "../DataContext";
 
-const shema = yup.object()
+
+
+const schema = yup.object()
     .shape({
-        email: yup
+        text: yup
             .string()
-            .email("Email should  have email correct format ")
-            .required("Email is required field"),
+            .required("text is required field"),
+        name: yup
+            .string()
+            .required("text is required field"),
+        location: yup
+            .string()
+            .required("text is required field"),
 
     })
+
 
 
 export const Step2 = () => {
+    // const [kata, setKata] = useState("1")
+    // useEffect(() => {
+    //     async function getDataDevice() {
+    //         const data = await getData()
+    //         setKata(data);
+    //     }
+    //     getDataDevice()
+    // }, []);
+
+
+
     const history = useHistory()
     const { data, setValues } = useData()
-    const { register, handleSubmit, errors, watch } = useForm({
+
+    const { register, handleSubmit, formState: { errors } } = useForm({
 
         defaultValues: {
-            email: data.email,
+            text: data.text,
+            name: data.name,
+            location: data.location
 
         },
+
         mode: "onBlur",
-        resolver: yupResolver(shema)
+        resolver: yupResolver(schema)
     })
 
 
-
     const onSubmit = (data) => {
-
         history.push("/result")
         setValues(data)
 
     }
 
-    return <MainContainer>
+    return (<MainContainer >
         <Typography
             component="h2"
-            variant="h5" >
+            variant="h8" >
             🦄 Step2
         </Typography>
 
-        <Form onSubmit={handleSubmit(onSubmit)}>
-            <Input
+        <Form onSubmit={handleSubmit(onSubmit)} >
 
-                {...register("email")}
-                type="email"
-                id="email"
-                label="Email"
-                name="email"
+            <Input
+                {...register("text")}
+                type="text"
+                id="text"
+                label="text"
+                name="text"
+                error={!!errors.text}
+                helperText={errors?.text?.message}
                 required />
 
+            <Input
+                {...register("name")}
+                type="name"
+                id="name"
+                label="name"
+                name="name"
+                error={!!errors.name}
+                helperText={errors?.name?.message}
+                required />
+
+            <Input
+                {...register("location")}
+                type="location"
+                id="location"
+                label="location"
+                name="location"
+                error={!!errors.location}
+                helperText={errors?.location?.message}
+                required />
+
+            {/* {
+                kata ? <img src={kata.img} alt="" width="400" height="250" /> : "please await"
+            } */}
 
 
-            <PrimateButton>
-                next
-            </PrimateButton>
-        </Form>
+            <PrimaryButton>next</PrimaryButton>
+
+        </Form >
     </MainContainer>
+    )
 }
+
+
+

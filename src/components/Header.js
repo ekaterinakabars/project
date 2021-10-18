@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(3, 0, 2),
         textAlign: "center",
         fontSize: "40px",
-        color: "deepbind",
+        color: "deeppink",
         textShadow: "1px 1px  darkmagenta",
     }
 }))
@@ -19,7 +19,7 @@ export const Header = () => {
     return (
         <Typography className={styles.root}
             component="h1"
-            variant="h5">
+            variant="h9">
             The Ultimate Form Challenge
         </Typography>
     )
