@@ -1,15 +1,19 @@
-// const { request } = require('./Step3')
-// // jest.mock('node-fetch');
-// // import fetch from 'node-fetch';
-// // import fetch, { Response } from 'node-fetch';
-// // const { Response } = jest.requireActual('node-fetch');
 
+// import fetch from 'node-fetch';
+// const { request } = require('./Step3')
+// jest.mock('node-fetch');
+// const { Response } = jest.requireActual('node-fetch');
 
 // describe('Positiv cases', () => {
-//     test("CreateUser calls fetch with the right args and returns picture", async () => {
-//         expect(fetch).toHaveBeenCalledWith("https://run.mocky.io/v3/286e9498-a855-4ddb-b8bb-3c1b80d8b3ac", {
+//     test('createUser calls fetch with the right args and return pikcture', async () => {
+//         fetch.mockReturnValue(Promise.resolve(new Response('4')));
+//         const data = await request();
+
+//         expect(fetch).toHaveBeenCalledTimes(1);
+//         expect(fetch).toHaveBeenCalledWith('http://website.com/users', {
+//             method: 'POST',
 //         });
-//         expect(fetch).toBe("https://run.mocky.io/v3/286e9498-a855-4ddb-b8bb-3c1b80d8b3ac");
+//         expect(data).toBe('4');
 //     });
 
 // })
