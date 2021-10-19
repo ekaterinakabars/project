@@ -13,13 +13,13 @@ function App() {
     <Router basename='/project'>
 
       <Header />
-      <Router >
-        <Switch>
-          <Route exact path="/" component={Step1} />
-          <Route exact path='/step2' component={Step2} />
-          <Route exact path='/result' component={Result} />
-        </Switch>
-      </Router>
+
+      <Switch>
+        <Route exact path="/" component={Step1} />
+        <Route exact path='/step2' component={Step2} />
+        <Route exact path='/result' component={Result} />
+      </Switch>
+
 
 
     </Router>
