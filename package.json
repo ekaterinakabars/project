@@ -23,6 +23,8 @@
     "react-dropzone": "^11.4.2",
     "react-hook-form": "^7.17.4",
     "react-hook-form-resolvers": "0.0.1",
+    "react-router": "^5.2.1",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "sweetalert2": "^11.1.9",
     "web-vitals": "^1.1.2",
@@ -34,7 +36,7 @@
     "test": " jest",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages  build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -56,8 +58,6 @@
   },
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
-    "enzyme": "^3.11.0",
-    "jest": "^27.3.0",
-    "react-router-dom": "^5.3.0"
+    "enzyme": "^3.11.0"
   }
 }

@@ -10,11 +10,6 @@ import * as yup from 'yup';
 import { useHistory } from "react-router";
 import { useData } from "../DataContext";
 
-
-
-
-
-
 const schema = yup.object().shape({
     firstName: yup
         .string()
@@ -40,7 +35,6 @@ const schema = yup.object().shape({
 
 })
 
-
 export const Step1 = () => {
     const history = useHistory()
     const { data, setValues } = useData()
@@ -62,9 +56,7 @@ export const Step1 = () => {
                 variant="h5" >
                 🦄 Step1
             </Typography>
-            <Form
-                onSubmit={handleSubmit(onSubmit)}
-            >
+            <Form onSubmit={handleSubmit(onSubmit)}>
                 <Input
                     {...register("firstName")}
 
@@ -99,7 +91,6 @@ export const Step1 = () => {
                     helperText={errors?.email?.message}
                 />
 
-
                 <Input
 
                     {...register("password")}
@@ -111,9 +102,6 @@ export const Step1 = () => {
                     helperText={errors?.password?.message}
                     required
                 />
-
-
-
 
                 <PrimaryButton>next</PrimaryButton>
             </Form>
