@@ -41,8 +41,6 @@ export const Result = () => {
         <MainContainer>
             <Typography component="h2" variant="h5">
                 📋 Form values
-
-
             </Typography>
             <TableContainer className={styles.root} component={Paper}>
                 <Table className={styles.table}>

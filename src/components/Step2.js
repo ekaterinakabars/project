@@ -29,16 +29,6 @@ const schema = yup.object()
 
 
 export const Step2 = () => {
-    // const [kata, setKata] = useState("1")
-    // useEffect(() => {
-    //     async function getDataDevice() {
-    //         const data = await getData()
-    //         setKata(data);
-    //     }
-    //     getDataDevice()
-    // }, []);
-
-
 
     const history = useHistory()
     const { data, setValues } = useData()
@@ -101,10 +91,6 @@ export const Step2 = () => {
                 error={!!errors.location}
                 helperText={errors?.location?.message}
                 required />
-
-            {/* {
-                kata ? <img src={kata.img} alt="" width="400" height="250" /> : "please await"
-            } */}
 
 
             <PrimaryButton>next</PrimaryButton>
