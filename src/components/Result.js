@@ -21,7 +21,6 @@ const useStyles = makeStyles({
 
 export const Result = () => {
 
-
     const [kata, setKata] = useState("1")
     useEffect(() => {
         async function getDataDevice() {
@@ -32,20 +31,12 @@ export const Result = () => {
     }, []);
 
 
-
-
-
     const styles = useStyles()
     const { data } = useData()
-
-
 
     const entries = Object.entries(data).filter((entry) => entry[0] !== "files")
 
     return (
-
-
-
 
         <MainContainer>
             <Typography component="h2" variant="h5">
@@ -58,10 +49,10 @@ export const Result = () => {
                     <TableHead>
                         <TableRow>
                             <TableCell>
-                                Field
+                                😈
                             </TableCell>
                             <TableCell align="right">
-                                Value
+                                👿
                             </TableCell>
                         </TableRow>
                     </TableHead>

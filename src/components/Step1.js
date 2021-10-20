@@ -54,7 +54,7 @@ export const Step1 = () => {
             <Typography
                 component="h2"
                 variant="h5" >
-                🦄 Step1
+                📸 Step1
             </Typography>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Input
